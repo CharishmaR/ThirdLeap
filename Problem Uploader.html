@@ -1,0 +1,134 @@
+<!Doctype html>
+<html ng-app>
+<head>
+<meta charset='utf-8'/>
+			<meta name='veiwport' content='width=device-width, initial-scale=1'>
+			<link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+			<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+			<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>	
+			<script src='xxx'></script>
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+			<script>
+			function CountryCntrl($scope) {
+                $scope.countries = {
+                    'India': {
+                        'Mathematics': ['Subtopic1', 'Subtopic2', 'Subtopic3']
+                    },
+                    'USA': {
+                        'Mathematics': ['Subtopic1', 'Subtopic2']
+                    }
+                };
+            }
+
+		
+			
+			
+			</script>
+			</head>
+			<body>
+			<style>
+				#navbar{
+					background-color: #DC143C;
+					box-shadow:	4px 4px 4px #888888;
+					height: 50px;
+					}
+				#navbar-brand{
+					color: white;
+					font-size: 25px;
+					margin-top: 0px;
+					padding-top: 10px;
+					padding-left: 5px;
+					}
+				#country{
+					margin-left:20px;
+					}
+				#subject{
+					margin-left:20px;
+					}
+				#topic{
+					margin-left:20px;
+					}
+				#area{
+					margin-left:20px;
+					}
+				#concept{
+					margin-left:20px;
+					}
+				
+				
+			</style>
+			<nav id="navbar">
+			<div id="navbar-header">
+				<h1 id="navbar-brand">Third Leap</h1>
+			</div>
+		</nav>
+		
+		<h3> 
+		
+		<div ng-controller="CountryCntrl">
+            <div id ="country">
+                Country: 
+                <select id="country" ng-model="states" ng-options="country for (country, states) in countries">
+                    <option value=''>Select</option>
+                </select>
+				<br>
+				<br>
+            </div>
+            <div id ="subject">
+                Subject: <select id="subject" ng-disabled="!states" ng-model="cities" ng-options="state for (state,city) in states">
+				<option value=''>Select</option></select>
+				<br>
+				<br>
+            </div>
+            <div id ="area">
+                Area: <select id="area" ng-disabled="!cities || !states" ng-model="city">
+				<option value=''>Select</option> <option ng-repeat="city in cities" value='{{city}}'>{{city}}</option></select>        
+				<br>
+				<br>
+			</div>
+
+	 <div id ="topic">
+                Topic: <select id="topic" ng-disabled="!cities || !states" ng-model="city">
+				<option value=''>Select</option> <option ng-repeat="city in cities" value='{{city}}'>{{city}}</option></select>        
+				<br>
+				<br>
+			</div>
+
+
+	 <div id ="concept">
+                Concept: <select id="concept" ng-disabled="!cities || !states" ng-model="city">
+				<option value=''>Select</option> <option ng-repeat="city in cities" value='{{city}}'>{{city}}</option></select>        
+				<br>
+				<br>
+			</div>
+
+
+
+        </div>
+ 
+ 
+ 
+	<div class='panel panel-default' id='mypanel1'>
+			<div class='panel-heading'>
+				<h3>Input</h3>
+			</div>
+			
+			<div class='panel panel-body'>
+			<style>
+								.textarea {
+									resize		:	none;
+									overflow-y 	: 	scroll;
+									width		:	100%;
+									height		:	350px;
+									text-align  :   top;
+									border-style	:   solid;
+									border-color	:	#DC143C;
+								}
+													
+								
+							</style>
+			<textarea form='myForm' class='textarea' id="editor" name='editor' placeholder='Enter template here'></textarea>
+			<br>
+			<button id="submit" value="Upload">Upload</button>
+			
+			</div>
